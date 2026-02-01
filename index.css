@@ -1,0 +1,19 @@
+/* Resilience styles for layout stability */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #000000;
+  overflow: hidden;
+}
+
+#root > div {
+  opacity: 1 !important;
+  width: 100%;
+}
+
+/* Custom Selection Color */
+::selection {
+  background: #D8FF5B;
+  color: #000;
+}

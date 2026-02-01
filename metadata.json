@@ -1,0 +1,7 @@
+{
+  "name": "Lurnip5",
+  "description": "Premium AI-first education operations. Re-engineered for high academic integrity and low-latency feedback.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
