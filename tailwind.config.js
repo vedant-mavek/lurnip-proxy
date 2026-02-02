@@ -19,6 +19,13 @@ export default {
         'accent-lime': '#D8FF5B',
         'accent-blue': '#4B89FF',
         'accent-pink': '#FF3FD3',
+        surface: '#080808',
+        'surface-soft': '#121212',
+        'border-white': 'rgba(255, 255, 255, 0.08)',
+      },
+      borderRadius: {
+        pill: '100px',
+        card: '40px',
       },
     },
   },

@@ -18,31 +18,11 @@
 
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Plus Jakarta Sans', 'sans-serif'],
-            },
-            colors: {
-              'accent-lime': '#D8FF5B',
-              'accent-blue': '#4B89FF',
-              'accent-pink': '#FF3FD3',
-              surface: '#080808',
-              'surface-soft': '#121212',
-              'border-white': 'rgba(255, 255, 255, 0.08)',
-            },
-            borderRadius: {
-              pill: '100px',
-              card: '40px',
-            },
-          },
-        },
-      };
-    </script>
 
     <style type="text/tailwindcss">
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
       @layer base {
         html { scroll-behavior: smooth; }
         body {
@@ -103,6 +83,6 @@
 
   <body class="bg-black">
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>

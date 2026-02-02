@@ -1,6 +1,5 @@
 import { supabase } from '../supabase';
 import { ServiceResponse } from './authService';
-import { GoogleGenAI } from "@google/genai";
 
 export const studentService = {
   async getCourses(batchId: string): Promise<ServiceResponse<any[]>> {
@@ -46,18 +45,17 @@ export const studentService = {
 
   async evaluateSubmission(instructions: string, content: string): Promise<ServiceResponse<string>> {
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-      const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
-        contents: `Assignment Instructions: ${instructions}\n\nStudent Submission: ${content}`,
-        config: {
-          systemInstruction: "You are a professional academic evaluator. Provide constructive, encouraging, and rigorous feedback in exactly 2 sentences. Focus on the depth of the student's understanding and any critical omissions.",
-          temperature: 0.7,
+      const response = await fetch('/api/evaluate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
+        body: JSON.stringify({ instructions, content }),
       });
-      return { data: response.text || 'Excellent effort on this submission.', error: null };
+      const result = await response.json();
+      return { data: result.data, error: null };
     } catch (error: any) {
-      console.error('AI Evaluation Error:', error);
+      console.error('Evaluation Error:', error);
       return { data: 'Submission received. AI evaluation currently unavailable, but your instructor will review it shortly.', error: null };
     }
   },
