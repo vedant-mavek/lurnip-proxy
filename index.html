@@ -2,13 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
     <title>Lurnip | Academic OS</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind Engine -->
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -21,70 +29,80 @@
               'accent-lime': '#D8FF5B',
               'accent-blue': '#4B89FF',
               'accent-pink': '#FF3FD3',
-              'surface': '#080808',
+              surface: '#080808',
               'surface-soft': '#121212',
               'border-white': 'rgba(255, 255, 255, 0.08)',
             },
             borderRadius: {
-              'pill': '100px',
-              'card': '40px',
-            }
-          }
-        }
-      }
+              pill: '100px',
+              card: '40px',
+            },
+          },
+        },
+      };
     </script>
-    
+
     <style type="text/tailwindcss">
       @layer base {
         html { scroll-behavior: smooth; }
-        body { 
+        body {
           @apply bg-black text-white antialiased selection:bg-[#D8FF5B] selection:text-black;
           -webkit-tap-highlight-color: transparent;
         }
-        h1, h2, h3, h4 { @apply tracking-tighter font-black uppercase; }
+        h1, h2, h3, h4 {
+          @apply tracking-tighter font-black uppercase;
+        }
       }
+
       @layer components {
         .glass-pill {
           @apply bg-black/80 backdrop-blur-2xl border border-white/10 rounded-full shadow-2xl;
         }
         .btn-primary {
-          @apply h-16 px-10 rounded-pill bg-[#D8FF5B] text-black font-black text-xs uppercase tracking-[0.2em] transition-all active:scale-[0.96] hover:brightness-110 flex items-center justify-center gap-3 shadow-[0_10px_40px_rgba(216,255,91,0.15)];
+          @apply h-16 px-10 rounded-pill bg-[#D8FF5B] text-black font-black text-xs uppercase tracking-[0.2em]
+                 transition-all active:scale-[0.96] hover:brightness-110
+                 flex items-center justify-center gap-3
+                 shadow-[0_10px_40px_rgba(216,255,91,0.15)];
         }
         .input-pill {
-          @apply h-16 px-8 rounded-pill bg-[#111111] border border-white/5 text-white font-bold outline-none transition-all focus:border-[#D8FF5B]/40 placeholder:text-[#333333] w-full text-base;
+          @apply h-16 px-8 rounded-pill bg-[#111111] border border-white/5 text-white font-bold
+                 outline-none transition-all focus:border-[#D8FF5B]/40
+                 placeholder:text-[#333333] w-full text-base;
         }
         .card-premium {
-          @apply bg-[#080808] border border-white/5 rounded-card p-8 transition-all duration-500 hover:border-white/15 hover:bg-[#0A0A0A] shadow-2xl;
+          @apply bg-[#080808] border border-white/5 rounded-card p-8
+                 transition-all duration-500 hover:border-white/15 hover:bg-[#0A0A0A]
+                 shadow-2xl;
         }
       }
-      
-      /* Smooth Entry Animations */
+
       @keyframes slideUp {
         from { opacity: 0; transform: translateY(20px); }
         to { opacity: 1; transform: translateY(0); }
       }
-      .animate-finish { animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-      
+      .animate-finish {
+        animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
       .no-scrollbar::-webkit-scrollbar { display: none; }
       .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.2.4",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "vite": "https://esm.sh/vite@^7.3.1",
-    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
-    "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@^2.93.3",
-   npm install @google/genai
 
-  }
-}
-</script>
-</head>
+    <!-- Import Map (VALID JSON ONLY) -->
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@19",
+          "react-dom/": "https://esm.sh/react-dom@19/",
+          "react/": "https://esm.sh/react@19/",
+          "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@2"
+        }
+      }
+    </script>
+  </head>
+
   <body class="bg-black">
     <div id="root"></div>
-    <script type="module" src="./index.tsx"></script>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
